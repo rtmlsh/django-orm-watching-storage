@@ -1,3 +1,5 @@
+import django
+import datetime
 from django.db import models
 
 
@@ -28,3 +30,18 @@ class Visit(models.Model):
                 if self.leaved_at else 'not leaved'
             )
         )
+
+
+def get_duration(visit):
+    entered_at, leaved_at = django.utils.timezone.localtime(visit.entered_at), \
+                            django.utils.timezone.localtime(visit.leaved_at)
+    duration = leaved_at - entered_at
+    return duration
+
+
+def format_duration(duration):
+    seconds, minutes = 3600, 60
+    spent_hours = duration.total_seconds() // seconds
+    spent_minutes = (duration.total_seconds() % seconds) // minutes
+    spent_time = datetime.timedelta(hours=spent_hours, minutes=spent_minutes)
+    return spent_time
