@@ -45,3 +45,9 @@ def format_duration(duration):
     spent_minutes = (duration.total_seconds() % seconds) // minutes
     spent_time = datetime.timedelta(hours=spent_hours, minutes=spent_minutes)
     return spent_time
+
+
+def is_visit_long(spent_time):
+    suspicious_time = datetime.timedelta(minutes=60)
+    return True if spent_time >= suspicious_time else False
+
