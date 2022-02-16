@@ -50,4 +50,3 @@ def format_duration(duration):
 def is_visit_long(spent_time):
     suspicious_time = datetime.timedelta(minutes=60)
     return True if spent_time >= suspicious_time else False
-
