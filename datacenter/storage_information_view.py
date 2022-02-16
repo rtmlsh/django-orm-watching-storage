@@ -1,6 +1,7 @@
-from datacenter.models import Visit
 from django.shortcuts import render
-from datacenter.models import get_duration, format_duration, is_visit_long
+
+from datacenter.models import (Visit, format_duration, get_duration,
+                               is_visit_long)
 
 
 def storage_information_view(request):
