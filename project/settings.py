@@ -7,7 +7,7 @@ load_dotenv()
 env = Env()
 env.read_env()
 
-DATABASES = {"default": env.dj_db_url("DATABASE_URL")}
+DATABASES = {'default': env.dj_db_url('DATABASE_URL')}
 
 INSTALLED_APPS = ['datacenter']
 
@@ -17,7 +17,7 @@ DEBUG = env.bool('DEBUG', default=True)
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
